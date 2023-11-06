@@ -4,8 +4,7 @@ Karl will be the brain of a little robot friend. The inspiration came from watch
 
 https://www.youtube.com/watch?v=bO-DWWFolPw
 
-[<img src="https://github.com/thomasbrueggemann/karl/assets/2313087/4652a6a5-06ca-402c-850a-0f8847b60996">](https://www.youtube.com/watch?v=bO-DWWFolPw)
-
+<img width="1100" alt="Screenshot 2023-11-06 at 21 36 44 3" src="https://github.com/thomasbrueggemann/karl/assets/2313087/288e6d52-82b8-441f-ac2e-32f3e38ad5d0">
 
 ## Karls Birthjournal
 
