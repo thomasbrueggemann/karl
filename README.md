@@ -2,7 +2,10 @@
 
 Karl will be the brain of a little robot friend. The inspiration came from watching the following YouTube video. While the hardware in the video is pretty retro-awesome, I think it would be a smart move to leave any Alexa/Siri/... assistants behind as the core brain, but instead leverage some of the recent AI models to power Karls brain.
 
-[![The coolest robot I've ever built!](https://github.com/thomasbrueggemann/karl/assets/2313087/9fbb5b1a-f0ff-4594-919c-e545fbe480e1)]([https://youtu.be/StTqXEQ2l-Y?t=35s](https://www.youtube.com/watch?v=bO-DWWFolPw) "The coolest robot I've ever built!")
+<a href="https://www.youtube.com/watch?v=bO-DWWFolPw" target="_blank">
+  <img src="https://github.com/thomasbrueggemann/karl/assets/2313087/4652a6a5-06ca-402c-850a-0f8847b60996" />
+</a>
+
 
 ## Karls Birthjournal
 
