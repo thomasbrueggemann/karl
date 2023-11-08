@@ -3,3 +3,4 @@ pyaudio
 SpeechRecognition
 --extra-index-url https://download.pytorch.org/whl/cu116
 torch
+gpt4all==2.0.2
