@@ -19,6 +19,11 @@ https://github.com/Nikorasu/LiveWhisper/blob/main/livewhisper.py
 
 There seems to be a high-bandwidth alternative to ChatGPT, called https://gpt4all.io/index.html We'll look into that, if that can be fed the transscibed text from Whisper to process the response.
 
+### Step 3: Speak
+
+Choosing one of the many text-to-speech models to let Karl talk back.
+https://github.com/nateshmbhat/pyttsx3 looks promising since its fully offline capable.
+
 _to be continued..._
 
 ## Setup Dev Environment
