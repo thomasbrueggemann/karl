@@ -1,3 +1,3 @@
 #!/bin/bash
 
-/usr/bin/python3 karl.py
+/usr/bin/python3 src/karl.py
