@@ -14,7 +14,7 @@ def main():
     default_microphone = 'default'
     phrase_timeout = 3 # How much empty space between recordings before we consider it a new line in the transcription
     record_timeout = 2 # How real time the recording is in seconds
-    energy_threshold = 1000 # Energy level for mic to detect
+    energy_threshold = 900 # Energy level for mic to detect
     model = 'base' # tiny, base, small, medium, large
 
     phrase_time = None
@@ -106,26 +106,22 @@ def main():
                 # Otherwise edit the existing one.
                 if phrase_complete:
                     transcription.append(text)
+                    print(transcription)
                 else:
                     transcription[-1] = text
 
                 # Clear the console to reprint the updated transcription.
-                os.system('cls' if os.name=='nt' else 'clear')
-                for line in transcription:
-                    print(line)
+                #os.system('cls' if os.name=='nt' else 'clear')
+                #for line in transcription:
+                #    print(line)
                 
                 # Flush stdout.
-                print('', end='', flush=True)
+                #print('', end='', flush=True)
 
                 # Infinite loops are bad for processors, must sleep.
                 sleep(0.25)
         except KeyboardInterrupt:
             break
-
-    print("\n\nTranscription:")
-    for line in transcription:
-        print(line)
-
 
 if __name__ == "__main__":
     main()
