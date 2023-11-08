@@ -20,3 +20,11 @@ https://github.com/Nikorasu/LiveWhisper/blob/main/livewhisper.py
 There seems to be a high-bandwidth alternative to ChatGPT, called https://gpt4all.io/index.html We'll look into that, if that can be fed the transscibed text from Whisper to process the response.
 
 _to be continued..._
+
+## Setup Dev Environment
+
+```
+python3 -m venv venv
+source venv/bin/activate
+./install.sh
+```

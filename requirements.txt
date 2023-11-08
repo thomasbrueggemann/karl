@@ -1,4 +1,5 @@
 openai-whisper==20231106
-sounddevice==0.4.6
-numpy==1.26.1
-scipy==1.11.3
+pyaudio
+SpeechRecognition
+--extra-index-url https://download.pytorch.org/whl/cu116
+torch
