@@ -10,7 +10,6 @@ from tempfile import NamedTemporaryFile
 from time import sleep
 from sys import platform
 
-
 def main():
     default_microphone = 'default'
     phrase_timeout = 3 # How much empty space between recordings before we consider it a new line in the transcription
@@ -44,6 +43,7 @@ def main():
 
     if model != "large":
         model = model + ".en"
+    
     audio_model = whisper.load_model(model)
 
     temp_file = NamedTemporaryFile().name
@@ -71,10 +71,11 @@ def main():
     while True:
         try:
             now = datetime.utcnow()
-            
+
             # Pull raw recorded audio from the queue.
             if not data_queue.empty():
                 phrase_complete = False
+
                 # If enough time has passed between recordings, consider the phrase complete.
                 # Clear the current working audio buffer to start over with the new data.
                 if phrase_time and now - phrase_time > timedelta(seconds=phrase_timeout):
@@ -112,6 +113,7 @@ def main():
                 os.system('cls' if os.name=='nt' else 'clear')
                 for line in transcription:
                     print(line)
+                
                 # Flush stdout.
                 print('', end='', flush=True)
 
