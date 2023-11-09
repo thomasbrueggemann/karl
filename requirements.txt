@@ -1,6 +1,6 @@
 openai-whisper==20231106
 pyaudio
 SpeechRecognition
-gpt4all==2.0.2
 soundfile
 py3-tts==3.5 
+openai==1.2.0
