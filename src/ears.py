@@ -12,13 +12,13 @@ class Ears:
 
     def listen(self):
         with sr.Microphone() as source:
-
             self.recorder.adjust_for_ambient_noise(source)
 
             print(">")
             audio = self.recorder.listen(source)
 
-        result = self.recorder.recognize_whisper(audio, language="english")
+        print("...")
+        result = self.recorder.recognize_whisper(audio, language="english", model="base")
 
         if result is None or len(result) == 0:
             return None

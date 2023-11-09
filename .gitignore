@@ -2,3 +2,4 @@ venv/
 *.gguf
 *.part
 var.env
+local_run.sh
