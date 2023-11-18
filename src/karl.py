@@ -12,9 +12,9 @@ def main():
 
     openai_api_key = sys.argv[1]
 
-    ears = Ears()
+    ears = Ears(openai_api_key)
     brain = Brain(openai_api_key)
-    mouth = Mouth()
+    mouth = Mouth(openai_api_key)
 
     try:
         while True:
