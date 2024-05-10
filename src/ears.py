@@ -1,43 +1,24 @@
-
-import speech_recognition as sr
-import openai
-import tempfile
-from pathlib import Path
+from vosk import Model, KaldiRecognizer
+import pyaudio
 
 class Ears:
-    __energy_threshold = 1000 # Energy level for mic to detect
-    __listen_timeout = 2 # Seconds to listen for
-    __pause_threshold = 0.75 # Seconds of non-speaking audio before a phrase is considered complete
-    __dynamic_energy_threshold = False # Dynamic energy compensation lowers the energy threshold dramatically to a point where the SpeechRecognizer never stops recording.
 
-    def __init__(self, openai_api_key):
-        self.openai_client = openai.OpenAI(api_key=openai_api_key)
+    def __init__(self):
+        print("Ears are open")
+        model = Model(r"/Users/thomas/Downloads/vosk-model-small-en-us-0.15")
+        self.recognizer = KaldiRecognizer(model, 16000)
 
-        self.recorder = sr.Recognizer()
-        self.recorder.energy_threshold = self.__energy_threshold
-        self.recorder.pause_threshold = self.__pause_threshold
-        self.recorder.dynamic_energy_threshold = self.__dynamic_energy_threshold
-
+        mic = pyaudio.PyAudio()
+        self.stream = mic.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=8192)
 
     def listen(self):
-        with sr.Microphone() as source:
-            self.recorder.adjust_for_ambient_noise(source, duration=1)
-
-            print(">")
-            audio = self.recorder.listen(source, timeout=self.__listen_timeout)
-
-        print("...")
-
-        with tempfile.NamedTemporaryFile(suffix=".wav", delete=True) as temp_file:
-            temp_file.write(audio.get_wav_data())
-            temp_file_path = Path(temp_file.name)
-
-            transcription = self.openai_client.audio.transcriptions.create(model="whisper-1", file=temp_file_path)
-            result = transcription.text
-
-        if result is None or len(result) == 0:
-            return None
-
-        print("You:" + result)
-
-        return result
+        self.stream.start_stream()
+        data = self.stream.read(4096)
+	
+        if self.recognizer.AcceptWaveform(data):
+            self.stream.stop_stream()
+            
+            text = self.recognizer.Result()
+            print("You: " + text[14:-3])
+        
+            return text[14:-3]
